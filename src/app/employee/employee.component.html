@@ -1,0 +1,91 @@
+
+<head>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  </head>
+<div class="container-fluid mt-2">
+    <!--Table-->
+ 
+<div class="col-grid-4">
+    <!-- <div class="md-form mt-0">
+                    <input  type="text" [(ngModel)]="name"  name="search" class="searchTerm" #searchTerm placeholder="What are you looking for?">
+
+        <input class="form-control" type="text" placeholder="Search By Name" aria-label="Search">
+      </div>   -->
+      <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 red-border"  name="search" (keyup.enter)="SearchbyName(searchTerm)"  #searchTerm  type="text" placeholder="Search By Name" aria-label="Search">
+        <div class="input-group-append">
+          <span class="input-group-text red lighten-3" id="basic-text1" (click)="SearchbyName(searchTerm)"><i class="fas fa-search text-grey"
+              aria-hidden="true"></i></span>
+        </div>
+      </div>
+
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary btn-sm" (click)="calculateExperience()" title="Find all candidates with experience more than 2 years">More then 2 Years Experience Candidates</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="DistinctDepartment()" title="Find all candidates with experience more than 2 years">Distinct Departments And Candidates Count </button>
+
+        <button type="button" class="btn btn-primary btn-sm" (click)="RemoveDevelopmentcandidates()" title="Remove all candidates from 'Development' department">Remove All Development Department Candidates</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="ResetData()" title="Reset Data">Reset</button>
+
+      </div>
+</div>
+<table class="table table-striped" *ngIf="isnormal">
+
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name <a class="pl-2" (click)="SortByName()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
+        <th>Department</th>
+        <th>Joining Date <a class="pl-2" (click)="SortByJoiningDate()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
+        <th>Experience</th>
+      </tr>
+    </thead>
+    <!--Table head-->
+  
+    <!--Table body-->
+    <tbody>
+      <tr *ngFor="let item of CandidateData;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.department}}</td>
+        <td>{{item.joining_date}}</td>
+        <td >
+            {{item.experience}}
+        </td>
+      </tr>
+
+    </tbody>
+    <!--Table body-->
+  
+  
+  </table>
+
+  <table class="table table-striped" *ngIf="isdistinct">
+
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Department</th>
+        <th>Candidates Count</th>
+      </tr>
+    </thead>
+    <!--Table head-->
+  
+    <!--Table body-->
+    <tbody>
+      <tr *ngFor="let item of DistinctCandidateData;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.department}}</td>
+        <td>{{item.count}}</td>
+      </tr>
+
+    </tbody>
+    <!--Table body-->
+  
+  
+  </table>
+
+ 
+</div>

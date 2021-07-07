@@ -1,0 +1,53 @@
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+
+      <title>User List</title>
+</head>
+  <body>
+
+
+        <div class="main-wrapper">
+            <div class="container">
+                <div class="d-flex justify-content-between mt-4 mb-4">
+                    <div><a href=""><img src="../../assets/images/logo.png"></a></div>
+                    <a  class="btn btn-primary" [routerLink]="['../login']">Logout</a>
+                </div>
+            </div>
+            <div class="main-login-container">
+                <div class="bg-img">
+     
+                </div>
+               
+                 <div class="form-container"> 
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of Userdata;let i=index">
+                            <td>{{item.name}}</td>
+                            <td>{{item.number}}</td>
+                            <td>{{item.email}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                 </div>
+            </div>
+         </div>
+</body>
+</html>
